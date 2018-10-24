@@ -66,7 +66,7 @@ ifneq ("$(wildcard keymaps/$(KEYMAP)/makefile.mk)","")
 endif
 else
 $(error Keymap file does not exist)
-endif 
+endif
 endif
 
 else
@@ -136,7 +136,7 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 OPT_DEFS += -DBOOTLOADER_SIZE=4096
 
 # Build Options
-#   change to "no" to disable the options, or define them in the makefile.mk in 
+#   change to "no" to disable the options, or define them in the makefile.mk in
 #   the appropriate keymap folder that will get included automatically
 #
 BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration(+1000)
@@ -151,16 +151,17 @@ AUDIO_ENABLE = no           # Audio output on port C6
 UNICODE_ENABLE = no         # Unicode
 BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 RGBLIGHT_ENABLE = no        # Enable WS2812 RGB underlight.  Do not enable this with audio at the same time.
+BACKLIGHT_ENABLE = yes
 
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
-SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
+SLEEP_LED_ENABLE = yes    # Breathing sleep LED during USB suspend
 
 ifdef KEYMAP
 
 ifeq ("$(wildcard keymaps/$(KEYMAP).c)","")
 ifneq ("$(wildcard keymaps/$(KEYMAP)/makefile.mk)","")
 	include keymaps/$(KEYMAP)/makefile.mk
-endif 
+endif
 endif
 
 else
